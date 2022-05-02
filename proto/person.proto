@@ -1,0 +1,25 @@
+syntax = "proto3";
+// package 指定は必須。HTTP/2 の :path 疑似ヘッダの一部として使われる。
+package deepthought;
+
+// option 指定は文字通りオプションで無くても構いません。
+// 以下の例は Go のコードを生成する際のパッケージ名を指定しています。
+option go_package = "github.com/maru0804/grpc-study/proto";
+
+// Person サービスの定義
+service Person {
+  // Unaryリクエスト
+  rpc Hello (HelloRequest) returns (HelloResponse) {}
+}
+
+// リクエスト
+message HelloRequest {
+  string name = 1;
+  string email = 2;
+  int32 age = 3;
+}
+
+// レスポンス
+message HelloResponse {
+  string message = 1;
+}
