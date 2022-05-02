@@ -10,11 +10,11 @@
 go 1.16
 
 1. protobufをインストール
-~~~zsh
-$ brew install protobuf
-$ protoc --version
-libprotoc 3.17.3
-~~~
+  ~~~zsh
+  $ brew install protobuf
+  $ protoc --version
+  libprotoc 3.17.3
+  ~~~
 
 2. Go用のコンパイラをインストール
 
@@ -40,17 +40,19 @@ $ protoc -I. -Iinclude --go-grpc_out=module=github.com/maru0804/grpc-study:. pro
 5. server/main.goを記述
 
 動作確認
-~~~zsh
-$ go run main.go
-2022/05/02 21:03:30 Waiting for gRPC request ....
-2022/05/02 21:03:30 --------------
-~~~
+  ~~~zsh
+  $ go run main.go
+  2022/05/02 21:03:30 Waiting for gRPC request ....
+  2022/05/02 21:03:30 --------------
+  ~~~
 
 5. client/main.goを記述
 
 動作確認(別ターミナルで実行)
-~~~zsh
-$ go run main.go
-2022/05/02 21:16:48 Start Unary request
-2022/05/02 21:16:48 Response from Hello Server: message:"Hello,Thomas Lathan (30). email is Withown@example.net"
-~~~
+
+期待した出力であることを確認
+  ~~~zsh
+  $ go run main.go
+  2022/05/02 21:16:48 Start Unary request
+  2022/05/02 21:16:48 Response from Hello Server: message:"Hello,Thomas Lathan (30). email is Withown@example.net"
+  ~~~
